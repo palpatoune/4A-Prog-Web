@@ -1,0 +1,8 @@
+{
+  "realm": "Projet-4A-progWeb",
+  "auth-server-url": "http://localhost:8080/auth/",
+  "ssl-required": "none",
+  "resource": "frontend",
+  "public-client": true,
+  "confidential-port": 0
+}

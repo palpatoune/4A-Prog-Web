@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  baseUrl: 'http://localhost:4200',
+  production: false,
+  //apiUrl: 'http://localhost:8080/Projet-4A-progWeb/rest',
+
+  keycloakRealm: 'Projet-4A-progWeb',
+  keycloakClient: 'auth-client',
+  keycloakBaseUrl: 'http://localhost:8080/'
 };
 
 /*
