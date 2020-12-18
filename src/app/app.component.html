@@ -4,7 +4,17 @@
     <button mat-menu-item><a [routerLink]="['/sondage']">Login Mon bro</a></button>
     <button mat-menu-item>Item 2</button>
   </mat-menu>
-  <span style="margin: auto">Bienvenue sur {{title}}</span>
+  <span style="margin: auto">{{title}}</span>
+  <span><a *ngIf="!getKeycloakService().isLogged()" (click)="getKeycloakService().login()">Login</a></span>
+  <span><a *ngIf="getKeycloakService().isLogged()" (click)="getKeycloakService().logout()">Logout</a></span>
 </mat-toolbar>
 
+<div class="App" >
+<div class="separator"></div>
+
+<div class="content" >
 <router-outlet></router-outlet>
+</div>
+
+</div>
+

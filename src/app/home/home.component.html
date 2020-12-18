@@ -1,1 +1,108 @@
-<p>Salut les prostiputes</p>
+<head>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<div class="content">
+  <h1 class="titre"> Bienvenue dans notre application de sondage !</h1>
+
+  <div class="separator"></div>
+
+  <h2>Techonologies utilisé :</h2>
+  <p>Dans cette application nous avons fait plusieurs choix technique que nous jugeons judicieux et nous allons tâcher de vous les présenter brièvement.</p>
+
+  <div class="separator"></div>
+
+  <center>
+    <div class="carousel">
+      <mat-carousel timings="250ms ease-in"
+                    [autoplay]="true"
+                    interval='5000'
+                    color="accent"
+                    maxWidth="80%"
+                    proportion="25"
+                    slides="5"
+                    [loop]="true"
+                    [hideArrows]="false"
+                    [hideIndicators]="false"
+                    [useKeyboard]="true"
+                    [useMouseWheel]="true"
+                    orientation="ltr">
+
+        <mat-carousel-slide overlayColor="#203647">
+          <div style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center">
+            <img src="assets/keycloak.png" width="27%">
+          </div>
+        </mat-carousel-slide >
+
+        <mat-carousel-slide overlayColor="#203647">
+          <div style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center">
+            <img src="assets/spring-boot-logo.png" width="30%">
+          </div>
+        </mat-carousel-slide>
+
+        <mat-carousel-slide overlayColor="#203647">
+          <div style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center">
+            <img src="assets/typescript.png" width="18%">
+          </div>
+        </mat-carousel-slide>
+
+        <mat-carousel-slide overlayColor="#203647">
+          <div style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center">
+            <img src="assets/java.png" width="30%">
+          </div>
+        </mat-carousel-slide>
+
+        <mat-carousel-slide overlayColor="#203647">
+          <div style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center">
+            <img src="assets/Angular.png" width="20%">
+          </div>
+        </mat-carousel-slide>
+      </mat-carousel>
+
+    </div>
+  </center>
+
+  <div class="stackedit__html">
+    <h2 id="keycloak-">Keycloak :</h2>
+    <blockquote>
+      <p>Keycloak est un produit logiciel open source permettant la connexion unique avec Identity and Access Management destiné aux applications et services modernes.</p>
+    </blockquote>
+    <p>Plus précisément dans le cadre de notre application nous utilisons <code>keycloak</code> afin de garantir un niveau de sécurité maximal ainsi qu’une gestion de user optimisé, nous avons conscience que ce choix d’architecture est disproportionné pour ce genre de projet mais nous le voyons aussi et surtout comme un bon moyen de monter en compétence.</p>
+    <blockquote>
+      <p>schéma récapitulatif de l’architecture de keycloak<br>
+        <img src="https://cdn.discordapp.com/attachments/648455329016709121/789247687399571476/keycloak3-1024x576.png" alt="enter image description here"></p>
+    </blockquote>
+    <h2 id="springboot-">SpringBoot :</h2>
+    <p>Spring boot est un framework Java et Java J2EE qui permet d’exposer rapidement et facilement une API RESTful à des services web, qui pourront envoyer des requêtes HTTP à cette dernière.</p>
+    <p>Dans notre cas nous avons interfacé SpringBoot avec une base de données MySQL.</p>
+    <blockquote>
+      <p>Nous l’avons configuré selon le schéma suivant :<br>
+        <img src="https://cdn.discordapp.com/attachments/648455329016709121/789258559111036958/unknown.png" alt="enter image description here"></p>
+    </blockquote>
+    <p>Le front web envoie des requêtes HTTP à SpringBoot, qui les interprète et va ensuite demander à la base de données les éléments recherchés, en fonction des instructions que nous avons mises dans les contrôleurs d’objet.</p>
+    <h2 id="typescript">TypeScript</h2>
+    <p>TypeScript est un langage de programmation libre et open source développé par Microsoft qui a pour but d’améliorer et de sécuriser la production de code JavaScript. Le TypeScript est née d’un constat, " le javascript n’est pas fait pour les projets à grande échelle ".<br>
+      Typescript est un langage multi paradigmes. On peut faire du fonctionnel, comme de l’orienté objet sans problème. Et nous parlons de vrai orienté objet, pas d’orienté objet via prototype comme en Javascript. <strong>La combinaison POO et le fait que Typescript soit un langage fortement typé a tout changé</strong>.</p>
+    <blockquote>
+      <p>Interprétation de typeScript par notre navigateur<br>
+        <img src="https://cdn.discordapp.com/attachments/648455329016709121/789252861569662986/bjMyh2Y.png" alt="enter image description here"></p>
+    </blockquote>
+    <h2 id="java">java</h2>
+    <p>Je vais pas vous faire l’affront de vous expliquer ce qu’est le java.</p>
+    <h2 id="angular">Angular</h2>
+    <blockquote>
+      <p>Développé par Google et mis en production en 2009, Angular est une plateforme de développement (framework) open source qui permet de créer des applications web dynamique et immersive.</p>
+    </blockquote>
+    <p>Angular est utilisé pour créer ce que l’on appelle des “single page applications”, des applications web accessibles via une page web unique, on évite ainsi un chargement de page à chaque nouvelle action ce qui contribue à fluidifier l’application. Le frameword est basé sur une architecture <code>MVC</code> séparant ainsi les données visuelles et les actions pour une meilleure gestion des responsabilité.</p>
+    <p>Le framework s’appuie sur <code>Typescript</code> une surcouche de JavaScript développé par Microsoft, c’est un langage typé qui permet de créer des classes, des variables et des signature de fonction, il est possible d’utiliser du JavaScript natif avec Angular, mais TypeScript permet de mieux gérer les erreurs.</p>
+    <p>Il y’a de nombreux framework Js très populaire : Angular, React, Ember, Vue…, les autres framework marchent très bien, sont utilisés sur des site très fréquenté, React et Vue notament. Angular présente aussi un niveau de difficulté supérieur car on utilise du TypeScript plutôt que du JavaScript mais quel sont donc les avantage d’Angular ?</p>
+    <ul>
+      <li><strong>Angular est géré par Google</strong>, il y’a donc peu de chance qu’il disparaisse et l’équipe de développement du framework est excellente</li>
+      <li><strong>Le TypeScript</strong>, ce langage permet un dévelopement beaucoup plus stable, rapide et facile</li>
+      <li><strong>Le framework Ionic</strong>, permettant le développement d’application mobile multiplatformes à partir d’une seule base de code utilise Angular<br>
+        Bien entendu les autres framework ont aussi leurs avantage mais Angular reste un bon choix pour le developpement <code>frontend</code></li>
+    </ul>
+  </div>
+
+
+</div>

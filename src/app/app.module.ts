@@ -19,7 +19,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { SondageComponent } from './sondage/sondage.component';
 import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
-
+import { MatCarouselModule } from '@ngmodule/material-carousel';
 
 
 
@@ -33,6 +33,7 @@ import {MatMenuModule} from '@angular/material/menu';
     SondageComponent
   ],
   imports: [
+    MatCarouselModule.forRoot(),
     MatMenuModule,
     MatListModule,
     MatIconModule,
