@@ -2,6 +2,43 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
 
+## Etape d'instalation
+```shell script
+$ npm install --save-dev @angular/cli@latest (check version image)
+$ npm i -g npm-check-updates
+$ ncu -u
+$ npm install
+$ docker run --name=keycloak_11 -p 8081:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin jboss/keycloak:10.0.1
+$ npm install keycloak-js@latest --save
+#rendez vous à l'addresse localhost:8080 cliquez sur administration console et connectez avec l'identifient 'admin' et le mdp 'admin'
+#en haut à gauche de votre écran passez voitre souris sur 'select real' et cliqué sur 'add realm'
+#une fois cela fait importez le fichier 'realm-export.json' present dans les assets du projet
+#et voila il ne vous reste plus qu'à vous rendre dans le dossier source
+#lancez les commande :
+$ npm install
+$ ng serve -o 
+# et voila ça marche
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
