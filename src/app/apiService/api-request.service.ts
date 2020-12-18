@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { SalleSondages } from './../classesApi/salle-sondages';
 import { NewSondage } from './../classesApi/new-sondage';
 import { SondagePublic } from './../classesApi/sondage-public';
+import { ResultSondage } from './../classesApi/result-sondage';
 import * as Rx from "rxjs/Rx";
 import { from, Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
@@ -92,5 +93,15 @@ export class ApiRequestService {
         });
       }
 
-
+  apiResultVote(userName: string, id: number){
+        return this.http.get('http://localhost:8081/sondages/'+id+'/voted?userid='+userName).
+          pipe(
+            map((data: ResultSondage) => {
+            console.war,("test results"+data.reponses);
+            return data;
+          }), catchError( error => {
+            return throwError( 'Something went wrong!' );
+          })
+        )
+      }
 }

@@ -4,10 +4,56 @@ import {ApiRequestService} from './../apiService/api-request.service';
 import {SalleSondages} from './../classesApi/salle-sondages';
 import { NewSondage } from './../classesApi/new-sondage';
 import {SondagePublic} from './../classesApi/sondage-public';
+import {ResultSondage} from './../classesApi/result-sondage';
 import {MatDialog} from '@angular/material/dialog';
 
 var salleSelect;
 var sondageSelect;
+
+//Resultat Sondage//////////////////////////////////////////////////////////////////////////////////////////////////////
+@Component({
+  selector: 'result-sondage',
+  templateUrl: './sondageResult.html',
+})
+
+
+
+export class sondageResultPopup {
+Results: ResultSondage;
+array : Array<string,number>;
+compteur: number;
+compteurplus: number;
+resultParse: ResultSondage[];
+
+constructor(private kc: KeycloakService, private api: ApiRequestService, public dialog: MatDialog) { }
+
+  ngOnInit(): void {
+    this.resultParse= [];
+    this.kc.loadProfile()
+    .then(user =>{
+      this.agentProfile = user;
+      this.api.apiResultVote(this.agentProfile.username, sondageSelect).subscribe((data : any)=>{
+        console.warn("get api data sodages result",data);
+        this.Results = data;
+        console.warn("get api data sodages result",this.Results) //immense schlaguerie !!!
+        this.compteur=0;
+        this.compteurplus=this.compteur+1;
+        for (let i in this.Results) {
+          if(i%2==0){
+          this.resultParse.push(new ResultSondage(this.Results[this.compteur],this.Results[this.compteurplus]))
+
+          this.compteur = this.compteur+2;
+          this.compteurplus=this.compteur+1;
+          }
+        }
+        console.log(this.resultParse);
+      })
+    })
+  }
+}
+
+
+
 
 
 //Nouveau sondage Form//////////////////////////////////////////////////////////////////////////////////////////////////
@@ -23,16 +69,25 @@ export class NewSondageForm {
   choix = new Array();
   choixInter: string;
   sondage: NewSondage;
+  validerSondage: boolean;
+  validerTitre: boolean;
+  validerChoix: boolean;
 
 
   constructor(private kc: KeycloakService, private api: ApiRequestService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
-
+    this.validerSondage= true;
+    this.validerTitre= false;
+    this.validerChoix= false;
   }
 
   titreChangeHandler (event: any){
     this.titre = event.target.value;
+    this.validerTitre= true;
+    if(this.validerTitre == true && this.validerChoix == true){
+      this.validerSondage = false;
+    }
   }
 
   choixInterChangeHandler (event: any){
@@ -42,6 +97,10 @@ export class NewSondageForm {
   addChoix(){
     this.choix.push(this.choixInter);
     console.log(this.choix);
+    this.validerChoix= true;
+    if(this.validerTitre == true && this.validerChoix == true){
+      this.validerSondage = false;
+    }
   }
 
   setTitle(){
@@ -203,6 +262,11 @@ export class SondageComponent implements OnInit {
 
   newSondage(): void{
     const dialogRef = this.dialog.open(NewSondageForm);
+  }
+
+  sondageResult(Select: number): void{
+    sondageSelect = Select; //salle à afficher (var global car doit être accessible par l'autre component)
+    const dialogRef = this.dialog.open(sondageResultPopup); // on ouvre une pop-up qui est un nouveau component
   }
 
 }

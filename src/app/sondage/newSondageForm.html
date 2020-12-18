@@ -5,7 +5,7 @@
   </mat-form-field>
 </form>
 
-<button mat-raised-button color="primary" (click)="setTitle()">Valider titre</button>
+<!--<button mat-raised-button color="primary" (click)="setTitle()">Valider titre</button>-->
 <div class="separator"></div>
 <br>
 
@@ -24,5 +24,5 @@
 <button mat-raised-button color="primary"  (click)="addChoix()">Ajouter un choix</button>
 <br>
 <br>
-<button mat-raised-button color="primary"  (click)="createNewSondage()" [mat-dialog-close]="true" >Ajouter un nouveaux sondage</button>
+<button mat-raised-button color="primary"  (click)="createNewSondage()" [disabled]="this.validerSondage" [mat-dialog-close]="true" >Ajouter un nouveaux sondage</button>
 

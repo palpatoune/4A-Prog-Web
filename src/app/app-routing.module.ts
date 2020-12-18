@@ -8,6 +8,7 @@ import {DialogContentExampleDialog} from './sondage/sondage.component';
 import { AppComponent } from './app.component';
 import {DialogSondagePublic} from './sondage/sondage.component';
 import {NewSondageForm} from './sondage/sondage.component';
+import {sondageResultPopup} from './sondage/sondage.component'
 
 // Auth by Keycloak (Simon is a genious)
 import { PermissionGuard } from './coreAuth/model/permission-guard';
@@ -26,4 +27,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [HomeComponent, SondageComponent,DialogContentExampleDialog, DialogSondagePublic, NewSondageForm]
+export const routingComponents = [HomeComponent, SondageComponent,DialogContentExampleDialog, DialogSondagePublic, NewSondageForm,sondageResultPopup]

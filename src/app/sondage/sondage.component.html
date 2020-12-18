@@ -35,6 +35,7 @@
     <div *ngFor="let sondagePublic of sondagePublics">
       <mat-list-item role="listitem" >Titre : {{sondagePublic.titre}}; Propriétaire : {{sondagePublic.idProprietaire}}  </mat-list-item>
       <button mat-raised-button color="primary" style="margin-right: 10px;" (click)="openDialogSondagePublic(sondagePublic.id)">Voter</button>
+      <button mat-raised-button color="accent" style="margin-right: 10px;" (click)="sondageResult(sondagePublic.id)">Résultats</button>
       <button mat-raised-button color="warn" (click)="Delete(sondagePublic.id)">Supprimer</button>
       <div class="separator"></div>
       <br>
