@@ -1,0 +1,28 @@
+<form class="example-form">
+  <mat-form-field>
+    <mat-label>Titre</mat-label>
+    <input matInput placeholder="Titre"  (change)="titreChangeHandler($event)">
+  </mat-form-field>
+</form>
+
+<button mat-raised-button color="primary" (click)="setTitle()">Valider titre</button>
+<div class="separator"></div>
+<br>
+
+<form class="example-form">
+  <mat-form-field>
+    <mat-label>Choix sondage</mat-label>
+    <input matInput placeholder="Ex. le bleu"  (change)="choixInterChangeHandler($event)">
+  </mat-form-field>
+</form>
+
+<mat-list role="list">
+  <mat-list-item role="listitem" *ngFor="let choice of this.choix">{{choice}}</mat-list-item>
+
+</mat-list>
+
+<button mat-raised-button color="primary"  (click)="addChoix()">Ajouter un choix</button>
+<br>
+<br>
+<button mat-raised-button color="primary"  (click)="createNewSondage()" [mat-dialog-close]="true" >Ajouter un nouveaux sondage</button>
+

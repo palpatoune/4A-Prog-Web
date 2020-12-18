@@ -12,6 +12,7 @@ import { SecuredHttpInterceptor } from './coreAuth/interceptor/secured-http.inte
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
+
 //Material module
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -25,6 +26,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 
@@ -37,6 +40,8 @@ import {MatRadioModule} from '@angular/material/radio';
 
   ],
   imports: [
+    MatFormFieldModule,
+    MatInputModule,
     MatRadioModule,
     MatDialogModule,
     MatDividerModule,

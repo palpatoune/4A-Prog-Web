@@ -1,14 +1,14 @@
 <h1 class="titre">Bienvenue dans ta page de sondage {{agentProfile.username}} </h1>
 <div class="separator"></div>
 
-<h2>Liste de vos salles de sondage privé :</h2>
+<h2>Liste de vos salles de sondages privés :</h2>
 <div class="separator"></div>
 <div class="salleSondage">
     <mat-card class="example-card" *ngFor="let salleSondage of salleSondages">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>{{salleSondage.nom}}</mat-card-title>
-        <mat-card-subtitle>propriétaire {{salleSondage.idProprietaire}}</mat-card-subtitle>
+        <mat-card-subtitle>Propriétaire : {{salleSondage.idProprietaire}}</mat-card-subtitle>
       </mat-card-header>
       <img mat-card-image src="assets/choix.jpg" alt="choix">
       <mat-card-content>
@@ -24,14 +24,18 @@
 
 <br>
 
-<h2>Liste des sondage public</h2>
+<h2>Liste des sondages publics</h2>
+<button mat-raised-button color="accent" style="margin-right: 10px;" (click)="newSondage()" >Créer un nouveau sondage</button>
+<div class="separator"></div>
+<br>
+<mat-divider ></mat-divider>
 <div class="separator"></div>
 <div class="listSondagePublic" >
   <mat-list role="list">
     <div *ngFor="let sondagePublic of sondagePublics">
-      <mat-list-item role="listitem" >titre : {{sondagePublic.titre}}; propriétaire : {{sondagePublic.idProprietaire}}  </mat-list-item>
-      <button mat-raised-button color="primary" style="margin-right: 10px;" (click)="openDialogSondagePublic(sondagePublic.id)">Accéder</button>
-      <button mat-raised-button color="warn">Supprimer</button>
+      <mat-list-item role="listitem" >Titre : {{sondagePublic.titre}}; Propriétaire : {{sondagePublic.idProprietaire}}  </mat-list-item>
+      <button mat-raised-button color="primary" style="margin-right: 10px;" (click)="openDialogSondagePublic(sondagePublic.id)">Voter</button>
+      <button mat-raised-button color="warn" (click)="Delete(sondagePublic.id)">Supprimer</button>
       <div class="separator"></div>
       <br>
       <mat-divider ></mat-divider>

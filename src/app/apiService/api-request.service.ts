@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { SalleSondages } from './../classesApi/salle-sondages';
+import { NewSondage } from './../classesApi/new-sondage';
 import { SondagePublic } from './../classesApi/sondage-public';
 import * as Rx from "rxjs/Rx";
 import { from, Observable, throwError } from 'rxjs';
@@ -61,6 +62,35 @@ export class ApiRequestService {
       })
     )
   }
+
+  apiSondagesDelete(userName: string, id: number){
+      this.http.delete('http://localhost:8081/sondages/'+id+'?userid='+userName).subscribe(data => {
+        console.log(data);
+      });
+    }
+
+  voterPost(userName: string, idSondage: number, choix: string) {
+    this.http.post('http://localhost:8081/sondages/'+ idSondage + '/vote?userid=' + userName+ '&choixReponse='+choix, null).subscribe(data => {
+      console.log(data);
+    });
+  }
+
+  apiHasVoted(userName: string, id: number){
+      return this.http.get('http://localhost:8081/sondages/'+id+'/hasvoted?userid='+userName).
+        pipe(
+          map((data: SondagePublic) => {
+          return data;
+        }), catchError( error => {
+          return throwError( 'Something went wrong!' );
+        })
+      )
+    }
+
+  apiNewSondage(userName: string, newSondage: NewSondage){
+        this.http.post('http://localhost:8081/sondages?userid='+userName, newSondage).subscribe(data => {
+          console.log(data);
+        });
+      }
 
 
 }

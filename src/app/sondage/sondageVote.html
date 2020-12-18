@@ -1,6 +1,6 @@
 <h1 class="titre">{{sondage.titre}} sondage réalisé par {{sondage.idProprietaire}}</h1>
 
-<h2> liste des choix</h2>
+<h2> Liste des choix</h2>
 
 <div class="listSondagePublic" >
 
@@ -8,9 +8,12 @@
     aria-labelledby="example-radio-group-label"
     class="example-radio-group"
     >
-    <mat-radio-button class="example-radio-button" *ngFor="let choix of sondage.reponses" [value]="choix">
+    <mat-radio-button class="example-radio-button" *ngFor="let choix of sondage.reponses" name="choix" [value]="choix" (change)="radioChangeHandler($event)" style="margin-right: 10px;">
       {{choix}}
     </mat-radio-button>
   </mat-radio-group>
+  <div class="separator"></div>
+  <br>
+  <button mat-raised-button color="primary" style=" " (click)="voter(sondage.id)" [disabled]="this.hasvoted"  [mat-dialog-close]="true">Voter</button>
 
 </div>

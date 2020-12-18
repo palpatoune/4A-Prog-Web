@@ -2,7 +2,7 @@
   <button mat-button [matMenuTriggerFor]="menu">Menu</button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item [routerLink]="['']"><p>HomePage</p></button>
-    <button mat-menu-item [routerLink]="['/sondage']"><p>Sondage</p></button>
+    <button mat-menu-item [routerLink]="['/sondage']"><p>Sondages</p></button>
   </mat-menu>
   <span style="margin: auto">{{title}}</span>
   <span><a *ngIf="!getKeycloakService().isLogged()" (click)="getKeycloakService().login()">Login</a></span>
