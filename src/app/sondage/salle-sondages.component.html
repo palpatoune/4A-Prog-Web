@@ -1,0 +1,16 @@
+<h1 class="titre">Bienvenue dans ta salle privé  </h1>
+
+<h2> liste des sondage de cette salle</h2>
+
+<div class="listSondagePublic" >
+  <mat-list role="list">
+    <div *ngFor="let sondageSalle of sondageSalles">
+      <mat-list-item role="listitem" >titre : {{sondageSalle.titre}}; propriétaire : {{sondageSalle.idProprietaire}}  </mat-list-item>
+      <button mat-raised-button color="primary" style="margin-right: 10px;" (click)="openDialogSondagePublic(sondageSalle.id)">Accéder</button>
+      <button mat-raised-button color="warn">Supprimer</button>
+      <div class="separator"></div>
+      <br>
+      <mat-divider ></mat-divider>
+    </div>
+  </mat-list>
+</div>

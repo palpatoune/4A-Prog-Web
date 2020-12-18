@@ -1,0 +1,16 @@
+<h1 class="titre">{{sondage.titre}} sondage réalisé par {{sondage.idProprietaire}}</h1>
+
+<h2> liste des choix</h2>
+
+<div class="listSondagePublic" >
+
+  <mat-radio-group
+    aria-labelledby="example-radio-group-label"
+    class="example-radio-group"
+    >
+    <mat-radio-button class="example-radio-button" *ngFor="let choix of sondage.reponses" [value]="choix">
+      {{choix}}
+    </mat-radio-button>
+  </mat-radio-group>
+
+</div>

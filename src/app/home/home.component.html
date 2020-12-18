@@ -4,29 +4,22 @@
 
 <div class="content">
   <h1 class="titre"> Bienvenue dans notre application de sondage !</h1>
-
   <div class="separator"></div>
-
   <h2>Techonologies utilisé :</h2>
   <p>Dans cette application nous avons fait plusieurs choix technique que nous jugeons judicieux et nous allons tâcher de vous les présenter brièvement.</p>
-
   <div class="separator"></div>
-
-  <center>
-    <div class="carousel">
+  <div class="carousel" style="margin-left: 20%;">
       <mat-carousel timings="250ms ease-in"
                     [autoplay]="true"
-                    interval='5000'
                     color="accent"
                     maxWidth="80%"
-                    proportion="25"
-                    slides="5"
                     [loop]="true"
                     [hideArrows]="false"
                     [hideIndicators]="false"
                     [useKeyboard]="true"
                     [useMouseWheel]="true"
-                    orientation="ltr">
+                    orientation="ltr"
+                    >
 
         <mat-carousel-slide overlayColor="#203647">
           <div style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center">
@@ -60,8 +53,6 @@
       </mat-carousel>
 
     </div>
-  </center>
-
   <div class="stackedit__html">
     <h2 id="keycloak-">Keycloak :</h2>
     <blockquote>
@@ -103,6 +94,4 @@
         Bien entendu les autres framework ont aussi leurs avantage mais Angular reste un bon choix pour le developpement <code>frontend</code></li>
     </ul>
   </div>
-
-
 </div>

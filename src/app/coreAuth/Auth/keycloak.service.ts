@@ -41,6 +41,24 @@ export class KeycloakService {
         } );
     }
 
+
+    loadProfile(): Promise<any> {
+        return new Promise<any>((resolve, reject) => {
+          if (KeycloakService.auth.authz.token) {
+            KeycloakService.auth.authz
+              .loadUserProfile()
+              .success(data => {
+                resolve(<any>data);
+              })
+              .error(() => {
+                reject('Failed to load profile');
+              });
+          } else {
+            reject('Not loggen in');
+          }
+        })
+      }
+
     /**
      * Checks if the logged user is a member of the specified group
      *
