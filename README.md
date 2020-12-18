@@ -1,9 +1,28 @@
-# AppProgWebFront
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
+Simon Ledoit, Thomas Carpentier -- 4A-UFA-42
+# Partie front : API pour le projet de programmation Web
 
-## Etape d'instalation
+Ce repository supporte le code de notre partie front de notre projet. C'est elle qui va présenter l'interface utilisateur aux personnes qui se connecteront. Les comptes et sessions qu'elle utilise sont gérés par un service sécurisé d'authentification bien distinct à notre API back, qui elle est contacté par notre front pour y insérer et extraire des données.
+
+## Description des fonctionnalités principales :
+
+### Les sondages
+ - **Création de sondages :** il est possible de créer un sondage public ou privé, c'est-à-dire qui appartient à une salle de sondage, nous y reviendrons. L'utilisateur devient systématiquement le propriétaire du sondage.
+ - **Vote sur un sondage :** un utilisateur peut voter une unique fois sur n'importe quel sondage public, ou sur un sondage privé, à condition qu'il soit membre de la salle de sondages à laquelle appartient ledit sondage privé.
+ - **Suppression d'un sondage :** un utilisateur est capable de supprimer un sondage tant qu'il en est le propriétaire, qu'il soit public ou privé.
+### Salle de sondages
+Cette section est à propos d'améliorations éventuelles, car bien que les features soient bien présentes et fonctionnelles dans notre back SpringBoot API, elles n'ont pas été implémentées dans le front. Les salles affectées à des utilisateurs sont cependant affichées, c'est notamment le cas avec les données de test que nous insérons.
+ - **Création d'une salle de sondage :** un utilisateur peut créer une salle, il est systématiquement le propriétaire.
+ - **Ajout d'un utilisateur dans une salle :** un membre d'une salle de sondage est capable d'ajouter un autre membre dans cette même salle.
+ - **Ajout d'un sondage dans une salle** : un utilisateur peut ajouter un sondage (privé par conséquent) dans une des salles dans lesquelles il est membre.
+### Votes
+ - **Visualiser les votes d'un sondage** : n'importe quel utilisateur peut visualiser les résultats des sondages publics, cependant pour les sondages privés, il doit être membre de la salle dans laquelle se situe ce sondage privé.
+
+
+## Prérequis de fonctionnement
+Les étapes nécessaires à l'installation de notre architecture sont les suivantes :
 ```shell script
+# Etapes d'installation
 $ npm install --save-dev @angular/cli@latest (check version image)
 $ npm i -g npm-check-updates
 $ ncu -u
@@ -20,45 +39,8 @@ $ ng serve -o
 # et voila ça marche
 ```
 
+## Vidéo démonstrative
+Nous avons conscience que l'architecture utilisée pour notre projet est bien au-dessus des besoins réels de l'application demandée, et entraîne plus de complexité et de rigidité, notamment avec par exemple l'utilisation de Keycloak. Cependant nous avons vu cela comme une montée en compétences.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Si la réplication de notre architecture est impossible, nous avons réalisé une vidéo démonstrative de l'état fonctionnel final de notre application :
+https://www.youtube.com/watch?v=WsVm7PiO0To
